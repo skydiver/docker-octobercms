@@ -1,0 +1,26 @@
+version: '2'
+services:
+
+    #####################
+    # OCTOBER
+    #####################
+    october:
+        container_name: october-www
+        build         : ./build/
+        links         :
+            - db
+        volumes       :
+            - ./html/:/var/www/html/
+        ports:
+            - 80:80
+
+    #####################
+    # DATABASE
+    #####################
+    db:
+        container_name: october-db
+        image         : mariadb:latest
+        volumes       :
+            - ./database:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
