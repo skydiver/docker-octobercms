@@ -13,6 +13,14 @@ services:
             - ./html/:/var/www/html/
         ports:
             - 80:80
+        environment:
+            - OCTOBER_DB_DRIVER=mysql
+            - OCTOBER_DB_HOST=db
+            - OCTOBER_DB_PORT=3306
+            - OCTOBER_DB_NAME=october_cms
+            - OCTOBER_DB_USER=root
+            - OCTOBER_DB_PASSWORD=root
+            - OCTOBER_CMS_EDGE_UPDATES=true
 
     #####################
     # DATABASE
