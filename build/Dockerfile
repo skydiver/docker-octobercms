@@ -18,6 +18,11 @@ RUN { \
 		echo 'opcache.enable_cli=1'; \
 	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
+# APACHE CUSTOM USER
+RUN useradd -ms /bin/bash martin \
+    && sed -i -e 's/www-data/martin/g' /etc/apache2/envvars \
+    && sed -i -e 's/www-data/martin/g' /etc/apache2/apache2.conf
+
 VOLUME /var/www/html
 
 RUN curl -sS https://getcomposer.org/installer | php \

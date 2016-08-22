@@ -141,7 +141,9 @@ for i in "${THEME[@]}"; do
     php artisan theme:install $i
 done
 
-chown -R www-data:www-data /var/www/html
+# chown -R www-data:www-data /var/www/html
+# APACHE CUSTOM USER
+chown -R martin. /var/www/html
 
 fi
 
