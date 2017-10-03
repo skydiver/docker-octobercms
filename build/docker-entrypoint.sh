@@ -71,7 +71,7 @@ if [[ "$1" == apache2* ]] || [ "$1" == php-fpm ]; then
         if ! [ -d vendor ]; then
           composer install
         fi
-        
+
         # Generate random key for this container if it's not specified
         if [ -n "$OCTOBER_KEY" ]; then
           export OCTOBER_KEY = "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)"
@@ -128,6 +128,9 @@ EOPHP
 export OCTOBER_DB_HOST OCTOBER_DB_PORT OCTOBER_DB_USER OCTOBER_DB_PASSWORD OCTOBER_DB_NAME
 
 php artisan october:up
+
+# Create .env file
+php artisan october:env
 
 # Install plugins if they are identified
 IFS=';' read -ra PLUGIN <<< "$OCTOBER_PLUGINS"

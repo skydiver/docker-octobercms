@@ -12,7 +12,7 @@ services:
         volumes       :
             - ./html/:/var/www/html/
         ports:
-            - 80:80
+            - 8000:80
         environment:
             - OCTOBER_DB_DRIVER=mysql
             - OCTOBER_DB_HOST=db
@@ -20,14 +20,14 @@ services:
             - OCTOBER_DB_NAME=october_cms
             - OCTOBER_DB_USER=root
             - OCTOBER_DB_PASSWORD=root
-            - OCTOBER_CMS_EDGE_UPDATES=true
+            - OCTOBER_CMS_EDGE_UPDATES=false
 
     #####################
     # DATABASE
     #####################
     db:
        #container_name: october-db
-        image         : mariadb:latest
+        image         : percona:latest
         volumes       :
             - ./database:/var/lib/mysql
         environment:
