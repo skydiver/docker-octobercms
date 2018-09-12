@@ -132,6 +132,9 @@ php artisan october:up
 # Create .env file
 php artisan october:env
 
+# Set the application key
+php artisan key:generate
+
 # Install plugins if they are identified
 IFS=';' read -ra PLUGIN <<< "$OCTOBER_PLUGINS"
 for i in "${PLUGIN[@]}"; do

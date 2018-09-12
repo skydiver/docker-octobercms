@@ -59,8 +59,8 @@ return [
             'database'  => getenv('OCTOBER_DB_NAME') ?: 'october_cms',
             'username'  => getenv('OCTOBER_DB_USER') ?: 'root',
             'password'  => getenv('OCTOBER_DB_PASSWORD') ?: '',
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
+            'charset'   => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
             'prefix'    => '',
         ],
 
@@ -79,7 +79,7 @@ return [
         'sqlsrv' => [
             'driver'   => 'sqlsrv',
             'host'     => 'localhost',
-            'port'     => '',
+            'port'     => 1433,
             'database' => 'database',
             'username' => 'root',
             'password' => '',
