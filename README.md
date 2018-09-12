@@ -1,17 +1,24 @@
-# OctoberCMS
+# Docker OctoberCMS
 
-### Description
-My Docker - OctoberCMS dev container
+## Description
+Docker development container for OctoberCMS
 
-Based on: https://github.com/Dragontek/octobercms
-
-
-### Software
+## Software
 * Apache
-* PHP 7
-* MariaDB
+* PHP 7.2
+* Percona 5.6
 
+## Usage
+1. `git clone https://github.com/skydiver/docker-octobercms.git`
+2. `docker-compose up`
+3. Browse to http://localhost:8000/
 
-### Usage
-1. clone repo
-2. ```docker-compose up```
+## Access Backend
+```
+http://localhost:8000/backend
+user: admin
+pass: admin
+```
+
+## Credits
+> Based on: https://github.com/Dragontek/octobercms
