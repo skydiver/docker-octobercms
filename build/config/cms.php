@@ -24,7 +24,7 @@ return [
     |
     */
 
-    'edgeUpdates' => getenv('OCTOBER_CMS_EDGE_UPDATES') ?: false,
+    'edgeUpdates' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -36,7 +36,7 @@ return [
     |
     */
 
-    'backendUri' => getenv('OCTOBER_CMS_BACKEND_URI') ?: 'backend',
+    'backendUri' => 'backend',
 
     /*
     |--------------------------------------------------------------------------
@@ -116,7 +116,7 @@ return [
     |
     */
 
-    'disableCoreUpdates' => getenv('OCTOBER_CMS_DISABLE_CORE_UPDATES') ?: false,
+    'disableCoreUpdates' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -141,7 +141,7 @@ return [
     |
     */
 
-    'enableRoutesCache' => getenv('OCTOBER_CMS_ENABLE_ROUTES_CACHE') ?: false,
+    'enableRoutesCache' => env('ROUTES_CACHE', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -154,7 +154,7 @@ return [
     |
     */
 
-    'urlCacheTtl' => getenv('OCTOBER_CMS_URL_CACHE_TTL') ?: 10,
+    'urlCacheTtl' => 10,
 
     /*
     |--------------------------------------------------------------------------
@@ -167,7 +167,7 @@ return [
     |
     */
 
-    'parsedPageCacheTTL' => getenv('OCTOBER_CMS_PARSED_PAGE_CACHE_TTL') ?:  10,
+    'parsedPageCacheTTL' => 10,
 
     /*
     |--------------------------------------------------------------------------
@@ -181,7 +181,7 @@ return [
     |
     */
 
-    'enableAssetCache' => getenv('OCTOBER_CMS_ENABLE_ASSET_CACHE') ?: false,
+    'enableAssetCache' => env('ASSET_CACHE', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -195,7 +195,7 @@ return [
     |
     */
 
-    'enableAssetMinify' => getenv('OCTOBER_CMS_ENABLE_ASSET_MINIFY') ?: null,
+    'enableAssetMinify' => null,
 
     /*
     |--------------------------------------------------------------------------
@@ -257,15 +257,15 @@ return [
     'storage' => [
 
         'uploads' => [
-            'disk'   => getenv('OCTOBER_CMS_STORAGE_UPLOADS_DISK') ?: 'local',
-            'folder' => getenv('OCTOBER_CMS_STORAGE_UPLOADS_FOLDER') ?: 'uploads',
-            'path'   => getenv('OCTOBER_CMS_STORAGE_UPLOADS_PATH') ?: '/storage/app/uploads',
+            'disk'   => 'local',
+            'folder' => 'uploads',
+            'path'   => '/storage/app/uploads',
         ],
 
         'media' => [
-            'disk'   => getenv('OCTOBER_CMS_STORAGE_MEDIA_DISK') ?: 'local',
-            'folder' => getenv('OCTOBER_CMS_STORAGE_MEDIA_FOLDER') ?: 'media',
-            'path'   => getenv('OCTOBER_CMS_STORAGE_MEDIA_PATH') ?: '/storage/app/media',
+            'disk'   => 'local',
+            'folder' => 'media',
+            'path'   => '/storage/app/media',
         ],
 
     ],
@@ -280,7 +280,7 @@ return [
     |
     */
 
-    'convertLineEndings' => getenv('OCTOBER_CMS_CONVERT_LINE_ENDINGS') ?: false,
+    'convertLineEndings' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -296,7 +296,7 @@ return [
     |
     */
 
-    'linkPolicy' => getenv('OCTOBER_CMS_LINK_POLICY') ?: 'detect',
+    'linkPolicy' => env('LINK_POLICY', 'detect'),
 
     /*
     |--------------------------------------------------------------------------
@@ -332,7 +332,7 @@ return [
     |
     */
 
-    'enableCsrfProtection' => getenv('OCTOBER_CMS_ENABLE_CSRF_PROTECTION') ?: true,
+    'enableCsrfProtection' => env('ENABLE_CSRF', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -346,20 +346,20 @@ return [
     */
 
     'forceBytecodeInvalidation' => true,
-
+    
     /*
     |--------------------------------------------------------------------------
     | Twig Strict Variables
     |--------------------------------------------------------------------------
     |
-    | If strict_variables is disabled, Twig will silently ignore invalid
+    | If strict_variables is disabled, Twig will silently ignore invalid 
     | variables (variables and or attributes/methods that do not exist) and
     | replace them with a null value. When enabled, Twig throws an exception
     | instead. If set to null, it is enabled when debug mode (app.debug) is
     | enabled.
     |
     */
-
+    
     'enableTwigStrictVariables' => false,
 
     /*

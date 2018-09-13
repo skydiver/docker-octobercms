@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => getenv('OCTOBER_CACHE_DEFAULT') ?: 'file',
+    'default' => env('CACHE_DRIVER', 'file'),
 
     /*
     |--------------------------------------------------------------------------

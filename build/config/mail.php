@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'driver' => getenv('OCTOBER_MAIL_DRIVER') ?: 'mail',
+    'driver' => env('MAIL_DRIVER', 'smtp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => getenv('OCTOBER_MAIL_HOST') ?: 'smtp.mailgun.org',
+    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'port' => getenv('OCTOBER_MAIL_PORT') ?: 587,
+    'port' => env('MAIL_PORT', 587),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => getenv('OCTOBER_MAIL_FROM_ADDRESS') ?: 'noreply@domain.tld', 'name' => getenv('OCTOBER_MAIL_FROM_NAME') ?: 'OctoberCMS'],
+    'from' => ['address' => 'noreply@domain.tld', 'name' => 'OctoberCMS'],
 
     /*
     |--------------------------------------------------------------------------
@@ -68,7 +68,7 @@ return [
     |
     */
 
-    'encryption' => getenv('OCTOBER_MAIL_ENCRYPTION') ?: 'tls',
+    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
 
     /*
     |--------------------------------------------------------------------------
@@ -81,7 +81,7 @@ return [
     |
     */
 
-    'username' => getenv('OCTOBER_MAIL_USERNAME') ?: null,
+    'username' => env('MAIL_USERNAME', ''),
 
     /*
     |--------------------------------------------------------------------------
@@ -94,7 +94,7 @@ return [
     |
     */
 
-    'password' => getenv('OCTOBER_MAIL_PASSWORD') ?: null,
+    'password' => env('MAIL_PASSWORD', ''),
 
     /*
     |--------------------------------------------------------------------------
