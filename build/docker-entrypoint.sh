@@ -143,9 +143,8 @@ php artisan key:generate
 # Update October to latest version
 php artisan october:update
 
-# chown -R www-data:www-data /var/www/html
 # APACHE CUSTOM USER
-chown -R martin. /var/www/html
+chown -R www-data:www-data /var/www/html
 
 fi
 
