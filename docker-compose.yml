@@ -20,7 +20,6 @@ services:
             - OCTOBER_DB_NAME=october_cms
             - OCTOBER_DB_USER=root
             - OCTOBER_DB_PASSWORD=root
-            - OCTOBER_CMS_EDGE_UPDATES=false
 
     #####################
     # DATABASE
