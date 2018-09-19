@@ -16,7 +16,19 @@ return [
     |
     */
 
-    'debug' => getenv('OCTOBER_APP_DEBUG') ?: true,
+    'debug' => env('APP_DEBUG', true),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Name
+    |--------------------------------------------------------------------------
+    |
+    | This value is the name of your application. This value is used when the
+    | framework needs to place the application's name in a notification or
+    | any other location as required by the application or its packages.
+    */
+
+    'name' => 'October CMS',
 
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +41,7 @@ return [
     |
     */
 
-    'url' => getenv('OCTOBER_APP_URL') ?: 'http://localhost',
+    'url' => env('APP_URL', 'http://localhost'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +54,7 @@ return [
     |
     */
 
-    'timezone' => getenv('OCTOBER_APP_TIMEZONE') ?: 'UTC',
+    'timezone' => 'UTC',
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +67,7 @@ return [
     |
     */
 
-    'locale' => getenv('OCTOBER_APP_LOCALE') ?: 'en',
+    'locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -81,9 +93,9 @@ return [
     |
     */
 
-    'key' => getenv('OCTOBER_APP_KEY') ?: 'CHANGE_ME!!!!!!!',
+    'key' => env('APP_KEY', 'base64:HDrUc5/yjg8UHzOZPa3gAiKr0rW3GdJqu34rTvcDEVU='),
 
-    'cipher' => MCRYPT_RIJNDAEL_128,
+    'cipher' => 'AES-256-CBC',
 
     /*
     |--------------------------------------------------------------------------
@@ -98,7 +110,7 @@ return [
     |
     */
 
-    'log' => getenv('OCTOBER_APP_LOG') ?: 'single',
+    'log' => 'single',
 
     /*
     |--------------------------------------------------------------------------
@@ -111,7 +123,7 @@ return [
     |
     */
 
-    'providers' => array_merge(include(base_path().'/modules/system/providers.php'), [
+    'providers' => array_merge(include(base_path('modules/system/providers.php')), [
 
         // 'Illuminate\Html\HtmlServiceProvider', // Example
 
@@ -129,7 +141,7 @@ return [
     |
     */
 
-    'aliases' => array_merge(include(base_path().'/modules/system/aliases.php'), [
+    'aliases' => array_merge(include(base_path('modules/system/aliases.php')), [
 
         // 'Str' => 'Illuminate\Support\Str', // Example
 

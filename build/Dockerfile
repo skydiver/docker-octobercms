@@ -1,11 +1,13 @@
-FROM php:7.0-apache
+FROM php:7.2-apache-stretch
 
 RUN a2enmod rewrite
 
 # install the PHP extensions we need
-RUN apt-get update && apt-get install -y git-core libsqlite3-dev libpq-dev libmcrypt-dev libpng12-dev libjpeg-dev && rm -rf /var/lib/apt/lists/* \
-        && docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
-        && docker-php-ext-install gd mysqli mcrypt zip mbstring pdo pdo_mysql pdo_sqlite pdo_pgsql json
+RUN apt-get update \
+    && apt-get install -y git-core libsqlite3-dev libpq-dev libmcrypt-dev libpng-dev libjpeg-dev && rm -rf /var/lib/apt/lists/* \
+    && docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
+    && docker-php-ext-install gd mysqli zip mbstring pdo pdo_mysql pdo_sqlite pdo_pgsql json \
+    && pecl install mcrypt-1.0.1 && docker-php-ext-enable mcrypt.so
 
 # set recommended PHP.ini settings
 # see https://secure.php.net/manual/en/opcache.installation.php

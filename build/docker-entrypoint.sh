@@ -125,28 +125,26 @@ switch(getenv('OCTOBER_DB_DRIVER')) {
 EOPHP
 
 # Export the variables so we can use them in config files
-export OCTOBER_DB_HOST OCTOBER_DB_PORT OCTOBER_DB_USER OCTOBER_DB_PASSWORD OCTOBER_DB_NAME
+export OCTOBER_DB_HOST OCTOBER_DB_PORT OCTOBER_DB_NAME OCTOBER_DB_USER OCTOBER_DB_PASSWORD
+export DB_HOST=$OCTOBER_DB_HOST
+export DB_PORT=$OCTOBER_DB_PORT
+export DB_DATABASE=$OCTOBER_DB_NAME
+export DB_USERNAME=$OCTOBER_DB_USER
+export DB_PASSWORD=$OCTOBER_DB_PASSWORD
 
 php artisan october:up
 
 # Create .env file
 php artisan october:env
 
-# Install plugins if they are identified
-IFS=';' read -ra PLUGIN <<< "$OCTOBER_PLUGINS"
-for i in "${PLUGIN[@]}"; do
-    php artisan plugin:install $i
-done
+# Set the application key
+php artisan key:generate
 
-# Install themes if they are identified
-IFS=';' read -ra THEME <<< "$OCTOBER_THEMES"
-for i in "${THEME[@]}"; do
-    php artisan theme:install $i
-done
+# Update October to latest version
+php artisan october:update
 
-# chown -R www-data:www-data /var/www/html
 # APACHE CUSTOM USER
-chown -R martin. /var/www/html
+chown -R www-data:www-data /var/www/html
 
 fi
 

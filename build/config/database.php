@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => getenv('OCTOBER_DB_DRIVER') ?: 'sqlite',
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -48,29 +48,29 @@ return [
 
         'sqlite' => [
             'driver'   => 'sqlite',
-            'database' => 'storage/database.sqlite',
+            'database' => env('DB_DATABASE', 'storage/database.sqlite'),
             'prefix'   => '',
         ],
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => getenv('OCTOBER_DB_HOST') ?: 'localhost',
-            'port'      => getenv('OCTOBER_DB_PORT') ?: 3306,
-            'database'  => getenv('OCTOBER_DB_NAME') ?: 'october_cms',
-            'username'  => getenv('OCTOBER_DB_USER') ?: 'root',
-            'password'  => getenv('OCTOBER_DB_PASSWORD') ?: '',
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', 3306),
+            'database' => env('DB_DATABASE', 'database'),
+            'username' => env('DB_USERNAME', ''),
+            'password' => env('DB_PASSWORD', ''),
+            'charset'   => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
             'prefix'    => '',
         ],
 
         'pgsql' => [
             'driver'   => 'pgsql',
-            'host'     => getenv('OCTOBER_DB_HOST') ?: 'localhost',
-            'port'     => getenv('OCTOBER_DB_PORT') ?: 5432,
-            'database' => getenv('OCTOBER_DB_NAME') ?: 'october_cms',
-            'username' => getenv('OCTOBER_DB_USER') ?: 'postgres',
-            'password' => getenv('OCTOBER_DB_PASSWORD') ?: '',
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', 5432),
+            'database' => env('DB_DATABASE', 'database'),
+            'username' => env('DB_USERNAME', ''),
+            'password' => env('DB_PASSWORD', ''),
             'charset'  => 'utf8',
             'prefix'   => '',
             'schema'   => 'public',
@@ -78,11 +78,11 @@ return [
 
         'sqlsrv' => [
             'driver'   => 'sqlsrv',
-            'host'     => 'localhost',
-            'port'     => '',
-            'database' => 'database',
-            'username' => 'root',
-            'password' => '',
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', 5432),
+            'database' => env('DB_DATABASE', 'database'),
+            'username' => env('DB_USERNAME', ''),
+            'password' => env('DB_PASSWORD', ''),
             'prefix'   => '',
         ],
 
@@ -117,9 +117,10 @@ return [
         'cluster' => false,
 
         'default' => [
-            'host'     => getenv('REDIS_PORT_6379_TCP_ADDR') ?: '127.0.0.1',
-            'port'     => getenv('REDIS_PORT_6379_TCP_PORT') ?: 6379,
-            'database' => 'october_cms',
+            'host' => env('REDIS_HOST', '127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', ''),
+            'port' => env('REDIS_PORT', 6379),
+            'database' => 0,
         ],
 
     ],
