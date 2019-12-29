@@ -5,8 +5,8 @@ Docker development container for OctoberCMS
 
 ## Software
 * Apache
-* PHP 7.2
-* Percona 5.6
+* PHP 7.3
+* Percona 5.7
 
 ## Usage
 1. `git clone https://github.com/skydiver/docker-octobercms.git`
